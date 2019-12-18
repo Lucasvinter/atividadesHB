@@ -13,5 +13,4 @@ class BaseDao:
 
     def buscar_por_id(self, comando_sql_buscar_id):
         self.cursor.execute(comando_sql_buscar_id)
-
         return self.cursor.fetchone()

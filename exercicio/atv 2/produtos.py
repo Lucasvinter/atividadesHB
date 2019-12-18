@@ -24,25 +24,32 @@ for i in lista[4][0]:
     preco = mercado.set_preco(i)
 
     if p.existe_produto(mercado.legumes):
-        print('produto já cadastrado!')
+        print('produtos já cadastrado!')
         break
     p.inserir_legumes(mercado.legumes, mercado.preco)
     v += 1
 
-"""
-    # cadastrando frutas:
-    v = 0
-    for i in lista[4][1]:
-        frutas = mercado.set_frutas(lista[1][v])
-        preco = mercado.set_preco(i)
-        p.inserir_frutas(mercado.frutas, mercado.preco)
-        v += 1
 
-    # cadastrando verduras:
-    v = 0
-    for i in lista[4][2]:
-        verduras = mercado.set_verduras(lista[2][v])
-        preco = mercado.set_preco(i)
-        p.inserir_verduras(mercado.verduras, mercado.preco)
-        v += 1
-"""
+# cadastrando frutas:
+v = 0
+for i in lista[4][1]:
+    frutas = mercado.set_frutas(lista[1][v])
+    preco = mercado.set_preco(i)
+
+    if p.existe_produto(mercado.frutas):
+        print('produtos já cadastrado!')
+        break
+    p.inserir_frutas(mercado.frutas, mercado.preco)
+    v += 1
+
+# cadastrando verduras:
+v = 0
+for i in lista[4][2]:
+    verduras = mercado.set_verduras(lista[2][v])
+    preco = mercado.set_preco(i)
+
+    if p.existe_produto(mercado.verduras):
+        print('produtos já cadastrado!')
+        break
+    p.inserir_verduras(mercado.verduras, mercado.preco)
+    v += 1

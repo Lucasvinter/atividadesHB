@@ -23,10 +23,10 @@ class ProdutosDao(BaseDao):
         return super().inserir(comando_sql_insert)
 
     def existe_produto(self, produto_nome):
-        comando_sql_buscar_por_id = f""" SELECT * FROM produto WHERE produto LIKE '%{produto_nome}%' LIMIT 1
+        comando_sql_buscar_id = f"""SELECT * FROM produto WHERE produto LIKE '%{produto_nome}%' LIMIT 1
         """
         verific = super().buscar_por_id(comando_sql_buscar_id)
         if verific:
-            return False
-        else:
             return True
+        else:
+            return False
