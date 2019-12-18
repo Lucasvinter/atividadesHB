@@ -16,7 +16,6 @@ class BaseDao:
         return self.cursor.fetchone()
 
     def listar(self, comando_sql_listar):
-        lista = []
         self.cursor.execute(comando_sql_listar)
         for p in self.cursor.fetchall():
             print(
