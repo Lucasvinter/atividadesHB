@@ -30,3 +30,13 @@ class ProdutosDao(BaseDao):
             return True
         else:
             return False
+
+    def listar_por_tipo(self, tipo):
+        comando_sql_listar = f"""
+        SELECT p.produto, p.preco, 
+        tp.tipo_produto FROM produto p 
+        JOIN tipo_produto as tp 
+        ON tp.id = p.fk_tipo_produto WHERE fk_tipo_produto = {tipo}
+        """
+
+        super().listar(comando_sql_listar)

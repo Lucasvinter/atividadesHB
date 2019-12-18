@@ -13,34 +13,35 @@ lista = [
      ]
 ]
 
+
 p = ProdutosDao()
 mercado = ProdutosClasse()
 
 # cadastrando legumes:
-v = 0
+l = 0
 
 for i in lista[4][0]:
-    legumes = mercado.set_legumes(lista[3][v])
+    legumes = mercado.set_legumes(lista[3][l])
     preco = mercado.set_preco(i)
 
     if p.existe_produto(mercado.legumes):
-        print('produtos já cadastrado!')
+        print('legumes já cadastrado!')
         break
     p.inserir_legumes(mercado.legumes, mercado.preco)
-    v += 1
+    l += 1
 
 
 # cadastrando frutas:
-v = 0
+f = 0
 for i in lista[4][1]:
-    frutas = mercado.set_frutas(lista[1][v])
+    frutas = mercado.set_frutas(lista[1][f])
     preco = mercado.set_preco(i)
 
     if p.existe_produto(mercado.frutas):
-        print('produtos já cadastrado!')
+        print('frutas já cadastrada!')
         break
     p.inserir_frutas(mercado.frutas, mercado.preco)
-    v += 1
+    f += 1
 
 # cadastrando verduras:
 v = 0
@@ -49,7 +50,32 @@ for i in lista[4][2]:
     preco = mercado.set_preco(i)
 
     if p.existe_produto(mercado.verduras):
-        print('produtos já cadastrado!')
+        print('verduras já cadastrada!')
         break
     p.inserir_verduras(mercado.verduras, mercado.preco)
     v += 1
+
+
+def buscar_tipo(lista_produtos, produtos):
+    print("""
+    Bem Vindo ao seu Mercado Online!
+    Opções do Mercado:
+    1 - Verduras
+    2 - Frutas
+    3 - Legumes
+    """)
+
+    escolha = int(
+        input('Selecione a categoria que você quer dar uma olhada: '))
+
+    if escolha == 1:
+        print(produtos.listar_por_tipo(escolha))
+    elif escolha == 2:
+        print(produtos.listar_por_tipo(escolha))
+    elif escolha == 3:
+        print(produtos.listar_por_tipo(escolha))
+    else:
+        print('Essa Opção não está disponível no momento.')
+
+
+buscar_tipo(lista, p)
